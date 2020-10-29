@@ -2,8 +2,6 @@
 using System.Runtime.CompilerServices;
 using static System.Console;
 
-/* This is the default implementation. */
-
 namespace Lab09
 {
     class Program
@@ -56,113 +54,6 @@ namespace Lab09
             {
                 WriteLine("Looks like a draw");                
             }
-        }
-
-        public static void DisplayBoard(char[] board)
-        {
-            WriteLine(" {0} | {1} | {2}", board[0], board[1], board[2]);
-            WriteLine("---+---+---");
-            WriteLine(" {0} | {1} | {2}", board[3], board[4], board[5]);
-            WriteLine("---+---+---");
-            WriteLine(" {0} | {1} | {2}", board[6], board[7], board[8]);
-        }
-
-        public static bool HasWinner(char[] board)
-        {
-            char[] row1 = new char[3] { board[0], board[1], board[2] };
-            char[] row2 = new char[3] { board[3], board[4], board[5] };
-            char[] row3 = new char[3] { board[6], board[7], board[8] };
-            char[] col1 = new char[3] { board[0], board[3], board[6] };
-            char[] col2 = new char[3] { board[1], board[4], board[7] };
-            char[] col3 = new char[3] { board[2], board[5], board[8] };
-            char[] diagonal1 = new char[3] { board[0], board[4], board[8] };
-            char[] diagonal2 = new char[3] { board[2], board[4], board[6] };
-
-
-            if (CellsAreTheSame(row1) || CellsAreTheSame(row2) || CellsAreTheSame(row3) || CellsAreTheSame(col1) || CellsAreTheSame(col2) || CellsAreTheSame(col3) || CellsAreTheSame(diagonal1) || CellsAreTheSame(diagonal2))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private static bool CellsAreTheSame(char[] cells)
-        {
-            if(cells[0] == cells[1] && cells[0] == cells[2])
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public static char getChar(string prompt)
-        {
-            Write(prompt);
-            char c = '\0';
-            do 
-            {
-                var input = ReadLine();
-                if(input.Length != 1)
-                    continue;
-                c = input[0];
-            }while((c < 'a' || c > 'i'));
-            return c;
-        }
-
-        public static int getIndex(char square)
-        {
-            switch (square)
-            {
-                //based on cell update board and assign newBoard the modified board.
-                case 'a':
-                    return 0;
-                case 'b':
-                    return 1;
-                case 'c':
-                    return 2;
-                case 'd':
-                    return 3;
-                case 'e':
-                    return 4;
-                case 'f':
-                    return 5;
-                case 'g':
-                    return 6;
-                case 'h':
-                    return 7;
-                case 'i':
-                    return 8;
-                default: 
-                    return -1;
-            }
-        }
-
-        public static char[] MakeMove(char player, char[] board)
-        {
-            char[] newBoard = new char[9];
-            board.CopyTo(newBoard, 0);
-            char cell = 'n';
-
-            do
-            {
-                cell = getChar("Please enter the cell you want to make your move (a-i): ");
-            }
-            while (!CanUpdateCell(newBoard, cell));
-            newBoard[getIndex(cell)] = player;
-
-            return newBoard;
-        }
-
-        private static bool CanUpdateCell(char[] board, char cell)
-        {
-            //check if cell is not X or O return true if so false if not
-            return board[getIndex(cell)] != 'O' && board[getIndex(cell)] != 'X';      
         }
 
         // TODO: write the functions used in main (and any other helper functions you want to use)
