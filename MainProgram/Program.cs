@@ -91,12 +91,11 @@ namespace MainProgram
 
         //MakeMove
         /**
-         * Continues to ask the player with symbol 'currentPlayer'
-         * for input until a valid (unused) cell is selected;
-         * then the corresponding cell is updated appropriately
-         */         
+         * Call GetMove("Where do you want to play?") until player selects an unused cell.
+         * Update the board at that index with the current player's symbol.
+         */
         //hint: you'll want to pass in the board so that you can change it; 
-        // also, you'll probably have a do-while loop in here in case the user selects a 
+        // also, you'll probably have a loop in here in case the user selects a 
         // cell that another player already picked.  You'll need to ask again for them to
         // pick another cell.
         
