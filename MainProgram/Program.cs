@@ -71,16 +71,14 @@ namespace MainProgram
 
         //GetMove
         /* given a string to prompt the user for input, get a cell.
-         * verify the cell is a valid cell defined in the board.  
-         * numbers and words are not valid cells.
-         * return the valid cell.
+         * The user must enter a single character, 'a' through 'i', that's it.
+         * Verify the cell is valid (e.g. it is in the board, and no one has played there yet).         
+         * return the index of the cell the player selected (if they want 'a' you'd return 0)
         */
 
-
         //HasWinner
-        /**
-         * given the board,
-         * returns true if the board has a winner
+        /* given the board,
+         * returns true if the board has a winner (8 possibilities: horizontal, vertical, or diagonal)
          */
         // hint: just return true if you can find three-in-a-row
         // of any character; consider writing the function 'CellsAreTheSame'
