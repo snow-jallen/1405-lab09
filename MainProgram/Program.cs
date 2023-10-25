@@ -2,9 +2,9 @@
 using System.Runtime.CompilerServices;
 using static System.Console;
 
-namespace Lab09
+namespace MainProgram
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
